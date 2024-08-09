@@ -1,8 +1,10 @@
+#!/usr/bin/env python3
+
 import os
 import telebot
 
+BOT_TOKEN = os.getenv('BOT_TOKEN')
 
-BOT_TOKEN = os.environ.get('BOT_TOKEN')
 bot = telebot.TeleBot(BOT_TOKEN)
 
 
@@ -16,4 +18,4 @@ def echo_all(message):
     bot.reply_to(message, message.text)
 
 
-bot.infinity_polling()
+bot.polling()
