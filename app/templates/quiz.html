@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlusPlusPlus - Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' dominant-baseline='middle' text-anchor='middle' font-size='24'>+++</text></svg>">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">PlusPlusPlus</a>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h2>Take the Quiz</h2>
+        <form method="POST" action="/quiz">
+            {% for question in questions %}
+            <div class="mb-4">
+                <h5>{{ question[1] }}</h5>
+                <div>
+                    <input type="radio" id="q{{ question[0] }}o1" name="{{ question[0] }}" value="1">
+                    <label for="q{{ question[0] }}o1">{{ question[2] }}</label>
+                </div>
+                <div>
+                    <input type="radio" id="q{{ question[0] }}o2" name="{{ question[0] }}" value="2">
+                    <label for="q{{ question[0] }}o2">{{ question[3] }}</label>
+                </div>
+                <div>
+                    <input type="radio" id="q{{ question[0] }}o3" name="{{ question[0] }}" value="3">
+                    <label for="q{{ question[0] }}o3">{{ question[4] }}</label>
+                </div>
+                <div>
+                    <input type="radio" id="q{{ question[0] }}o4" name="{{ question[0] }}" value="4">
+                    <label for="q{{ question[0] }}o4">{{ question[5] }}</label>
+                </div>
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
